@@ -8,6 +8,9 @@ import ProtectedRoute from './ProtectedRoute';
 import Examples from './common/components/Examples/Basic';
 import NotFound from './common/components/layout/NotFound/NotFound';
 
+import Sucursales from './common/components/Sucursal/index';
+import Saludo from "./common/components/Sucursal/saludo";
+
 import '../assets/fonts/fonts.css';
 
 require('../../node_modules/font-awesome/css/font-awesome.css');
@@ -38,6 +41,10 @@ module.exports = (
                     component={Notificaciones}
                 />
                 <ProtectedRoute exact path="/tabs" component={ExampleTabs} />
+                <ProtectedRoute exact path="/sucursales" component={Sucursales} />
+                <ProtectedRoute exact path="/saludo/:nombre" component={Saludo} />
+
+
                 <Route component={NotFound} />
             </Switch>
         </div>
