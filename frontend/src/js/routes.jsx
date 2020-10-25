@@ -8,9 +8,6 @@ import ProtectedRoute from './ProtectedRoute';
 import Examples from './common/components/Examples/Basic';
 import NotFound from './common/components/layout/NotFound/NotFound';
 
-import Sucursales from './common/components/Sucursal/index';
-import Saludo from "./common/components/Sucursal/saludo";
-
 import '../assets/fonts/fonts.css';
 
 require('../../node_modules/font-awesome/css/font-awesome.css');
@@ -20,6 +17,12 @@ import Grids from './common/components/Examples/Grids';
 import Notificaciones from './common/components/Examples/Notificaciones';
 import ExampleTabs from './common/components/Examples/Tabs/Tabs';
 require('../style/index.css');
+
+import Saludo from './common/components/saludo/index';
+import SaludoVariable from './common/components/saludo/SaludoVariable';
+
+import EmpresaListContainer from './common/components/Empresa/EmpresaListContainer';
+import EmpresaCrearContainer from './common/components/Empresa/EmpresaCrearContainer';
 
 module.exports = (
     <div>
@@ -41,9 +44,15 @@ module.exports = (
                     component={Notificaciones}
                 />
                 <ProtectedRoute exact path="/tabs" component={ExampleTabs} />
-                <ProtectedRoute exact path="/sucursales" component={Sucursales} />
-                <ProtectedRoute exact path="/saludo/:nombre" component={Saludo} />
+                
+                <ProtectedRoute exact path="/saludo" component={Saludo} />
+                <ProtectedRoute exact path="/saludo/:nombre" component={SaludoVariable} />
 
+                <ProtectedRoute exact path='/empresas/crear' component={EmpresaCrearContainer} />
+                <ProtectedRoute exact path='/empresas/:id' component={EmpresaCrearContainer} />
+                <ProtectedRoute exact path='/empresas/:id/editar' component={EmpresaCrearContainer} />
+                <ProtectedRoute exact path='/empresas' component={EmpresaListContainer} />
+                
 
                 <Route component={NotFound} />
             </Switch>
