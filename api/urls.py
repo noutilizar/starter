@@ -8,6 +8,9 @@ from api import viewsets
 router = DefaultRouter()
 router.register(r'user', viewsets.UserViewset)
 router.register(r'empresa', viewsets.EmpresaViewset)
+router.register(r'vehiculo', viewsets.VehiculoViewset)
+router.register(r'servicio', viewsets.ServicioViewset)
+router.register(r'reportes', viewsets.ReporteView)
 
 urlpatterns = [
     path('api/', include(router.urls)),

@@ -119,6 +119,19 @@ class SideBar extends Component {
                             </NavLink>
                         </li>
                         <li className="nav-item">
+                            <NavLink
+                                to="/reporte"
+                                exact
+                                className="nav-link "
+                                activeClassName={'active'}
+                            >
+                                <div className="d-inline-block item-icon-wrapper">
+                                    <i className="material-icons">lock</i>
+                                </div>
+                                <span>Reportes</span>
+                            </NavLink>
+                        </li>                           
+                        <li className="nav-item">
                             <Link
                                 to="/login"
                                 onClick={logOut}

@@ -24,7 +24,7 @@ class Profile(models.Model):
 
     def __unicode__(self):
         return self.user.username
-
+            
     def delete(self, *args):
         user = self.user
         user.is_active = False

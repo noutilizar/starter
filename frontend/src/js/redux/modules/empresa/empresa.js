@@ -6,9 +6,16 @@ import { api } from 'api';
 
 const GUARDAR_LISTADO_EMPRESAS = 'GUARDAR_LISTADO_EMPRESAS';
 const GUARDAR_REGISTRO_EMPRESA = 'GUARDAR_REGISTRO_EMPRESA';
+const ORDERING_EMPRESA = 'ORDERING_EMPRESA';
+const SEARCH_EMPRESA = 'SEARCH_EMPRESA';
 
-export const listar = () => (dispatch) => {
-    api.get('/empresa').then((response)=>{
+export const listar = (page = 1) => (dispatch, getStore) => {
+    const estado = getStore().empresa;    
+    let params = { page };
+    params.ordering = estado.ordering;
+    params.search = estado.search;
+
+    api.get('/empresa', params).then((response)=>{
         //console.log("response: ", response);
         dispatch({type: GUARDAR_LISTADO_EMPRESAS, data: response});
     }).catch((error)=>{
@@ -93,12 +100,32 @@ export const eliminar = (id) => (dispatch) => {
     })  
 }
 
+const onSortChange = (ordering) => (dispatch, getStore) => {
+    const estado = getStore().empresa;
+    const sort = estado.ordering;
+
+    if(ordering == sort){
+        dispatch({type: ORDERING_EMPRESA, ordering: `-${ordering}`});
+    }else{
+        dispatch({type: ORDERING_EMPRESA, ordering});
+    }
+    
+    dispatch(listar());
+}
+
+const onSearchChange = (search) => (dispatch) => {
+    dispatch({type: SEARCH_EMPRESA, search});
+    dispatch(listar());
+}
+
 export const actions = {
     registroEmpresa,
     actualizarEmpresa,
     listar,
     leer,
     eliminar,
+    onSortChange,
+    onSearchChange,
 };
 
 export const reducers = {
@@ -113,13 +140,27 @@ export const reducers = {
             ...state,
             registro,
         };
-    },        
+    },
+    [ORDERING_EMPRESA]: (state, { ordering }) => {
+        return {
+            ...state,
+            ordering,
+        };
+    },
+    [SEARCH_EMPRESA]: (state, { search }) => {
+        return {
+            ...state,
+            search,
+        };
+    },    
 };
 
 export const initialState = {
     loader: false,
     data: null,
     registro: null,
+    ordering: '',
+    search: '',
 }; 
 
 export default handleActions(reducers, initialState);

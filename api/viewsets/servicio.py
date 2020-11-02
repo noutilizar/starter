@@ -10,24 +10,24 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 
-from api.models import Empresa
-from api.serializers import EmpresaSerializer, EmpresaRegistroSerializer
+from api.models import Servicio
+from api.serializers import ServicioSerializer, ServicioRegistroSerializer
 
 
-class EmpresaViewset(viewsets.ModelViewSet):
-    queryset = Empresa.objects.filter(activo=True)
+class ServicioViewset(viewsets.ModelViewSet):
+    queryset = Servicio.objects.filter(activo=True)
 
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
-    filter_fields = ("nombre", "direccion")
-    search_fields = ("nombre",)
-    ordering_fields = ("nombre", "direccion")
+    filter_fields = ("vehiculo", "nombre", "precio")
+    search_fields = ("nombre", "precio")
+    ordering_fields = ("vehiculo", "nombre", "precio")
 
     def get_serializer_class(self):
         """Define serializer for API"""
         if self.action == 'list' or self.action == 'retrieve':
-            return EmpresaSerializer
+            return ServicioSerializer
         else:
-            return EmpresaRegistroSerializer
+            return ServicioRegistroSerializer
 
     def get_permissions(self):
         """" Define permisos para este recurso """

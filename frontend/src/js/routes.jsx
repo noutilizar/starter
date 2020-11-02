@@ -24,6 +24,8 @@ import SaludoVariable from './common/components/saludo/SaludoVariable';
 import EmpresaListContainer from './common/components/Empresa/EmpresaListContainer';
 import EmpresaCrearContainer from './common/components/Empresa/EmpresaCrearContainer';
 
+import Reporte from './common/components/Reportes/reporteContainer';
+
 module.exports = (
     <div>
         <div className="container__content">
@@ -51,8 +53,9 @@ module.exports = (
                 <ProtectedRoute exact path='/empresas/crear' component={EmpresaCrearContainer} />
                 <ProtectedRoute exact path='/empresas/:id' component={EmpresaCrearContainer} />
                 <ProtectedRoute exact path='/empresas/:id/editar' component={EmpresaCrearContainer} />
-                <ProtectedRoute exact path='/empresas' component={EmpresaListContainer} />
-                
+                <ProtectedRoute exact path='/empresas' component={EmpresaListContainer} />                                
+
+                <ProtectedRoute exact path='/reporte' component={Reporte} />
 
                 <Route component={NotFound} />
             </Switch>

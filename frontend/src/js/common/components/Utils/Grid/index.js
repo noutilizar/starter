@@ -33,6 +33,7 @@ export default class Grid extends Component {
             trClassName,
             ...other
         } = this.props;
+         
         const options = {
             sizePerPage: 10,
             hideSizePerPage: true,
