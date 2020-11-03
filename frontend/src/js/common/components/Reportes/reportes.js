@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {RenderCurrency} from '../Utils/renderField/renderReadField';
+import Formulario from "./Formulario";
 
 class Reporte extends Component{
     componentWillMount = () => {
@@ -8,17 +9,22 @@ class Reporte extends Component{
     }
 
     render(){
-        const { data } = this.props;
+        const { data, selectUser, filtroGasto } = this.props;
         console.log("Data reporte: ", data);
 
         return(
             <div className='mt-2'>
-                <div className='d-flex flex-row justify-content-between'>
-                    <h3> Reporte Principal</h3>
-                    <h3><RenderCurrency value={data.total} /></h3>
-                </div>
+                <Formulario
+                    selectUser={selectUser}
+                    filtroGasto={filtroGasto}
+                    onSubmit={()=>console.log(" ")}
+                />
                 {data &&
                 <React.Fragment>                                        
+                    <div className='d-flex flex-row justify-content-between'>
+                        <h3> Reporte Principal</h3>
+                        <h3><RenderCurrency value={data.total} /></h3>
+                    </div>
                     <h4> Listado de Vehículos y Gastos por usuario</h4>    
 
                     <table className='table table-bordered'>

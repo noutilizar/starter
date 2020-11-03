@@ -235,7 +235,7 @@ export const SelectField = ({
                 isSearchable={isSearchable}
                 options={_options}
                 placeholder={placeholder}
-                onChange={(e) => {
+                onChange={(e) => {                    
                     input.onChange(e ? e[valueKey] : null);
                 }}
                 value={value}
@@ -270,7 +270,7 @@ export const AsyncSelectField = ({
                 defaultOptions
                 loadOptions={loadOptions}
                 placeholder={placeholder}
-                onChange={(e) => {
+                onChange={(e) => {                    
                     input.onChange(e ? e : null);
                 }}
                 value={input.value}

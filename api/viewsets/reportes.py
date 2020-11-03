@@ -14,6 +14,9 @@ class ReporteView(GenericViewSet):
     @action(detail=False, methods=['get'])
     def reportePrincipal(self, request):
         try:
+            id_usuario = int(request.query_params.get('usuario'))
+            gasto_minimo = float(request.query_params.get('gasto'))
+
             #Listado de vehiculos
             listado_vehiculos = Vehiculo.objects.all()
 
@@ -26,6 +29,14 @@ class ReporteView(GenericViewSet):
             ).annotate(
                 total_gastado =  Sum("vehiculo_user__servicio_vehiculo__precio")
             )
+
+            if id_usuario > 0:
+                usuarios_vehiculo = usuarios_vehiculo.filter(id=id_usuario)
+
+            if gasto_minimo > 0:
+                usuarios_vehiculo = usuarios_vehiculo.filter(
+                    total_gastado__gt= gasto_minimo
+                )
 
             total_acumulado = 0
             queryset = Servicio.objects.aggregate(total=Sum('precio'))
