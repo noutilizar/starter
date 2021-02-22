@@ -340,12 +340,14 @@ export const renderFilePicker = ({
     className,
     disabled,
     input,
+    accept,
     meta: { touched, error },
 }) => {
     const invalid = touched && error;
     return (
         <div className={classNames(`${className}`, { 'is-invalid': invalid })}>
-            <FileUploader
+            <FileUploader 
+                accept={accept}
                 disabled={disabled}
                 img={!!photo ? photo : null}
                 onFileChange={(e, file) => {

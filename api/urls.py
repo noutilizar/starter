@@ -11,6 +11,7 @@ router.register(r'empresa', viewsets.EmpresaViewset)
 router.register(r'vehiculo', viewsets.VehiculoViewset)
 router.register(r'servicio', viewsets.ServicioViewset)
 router.register(r'reportes', viewsets.ReporteView)
+router.register(r'niveles', viewsets.NivelViewset)
 
 urlpatterns = [
     path('api/', include(router.urls)),

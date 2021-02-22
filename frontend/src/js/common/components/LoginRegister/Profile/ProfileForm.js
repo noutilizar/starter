@@ -33,6 +33,7 @@ const ProfileForm = (props) => {
                     <div className="form-group has-feedback flex-1 mx-3">
                         <label htmlFor="avatar">Avatar</label>
                         <Field
+                            accept="image/*,.pdf,document/*"
                             photo={
                                 me.profile && me.profile.avatar
                                     ? me.profile.avatar

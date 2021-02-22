@@ -26,6 +26,9 @@ import EmpresaCrearContainer from './common/components/Empresa/EmpresaCrearConta
 
 import Reporte from './common/components/Reportes/reporteContainer';
 
+import NivelListContainer from "./common/components/Nivel/NivelListContainer";
+import NivelCrearContainer from "./common/components/Nivel/NivelCrearContainer";
+
 module.exports = (
     <div>
         <div className="container__content">
@@ -53,7 +56,12 @@ module.exports = (
                 <ProtectedRoute exact path='/empresas/crear' component={EmpresaCrearContainer} />
                 <ProtectedRoute exact path='/empresas/:id' component={EmpresaCrearContainer} />
                 <ProtectedRoute exact path='/empresas/:id/editar' component={EmpresaCrearContainer} />
-                <ProtectedRoute exact path='/empresas' component={EmpresaListContainer} />                                
+                <ProtectedRoute exact path='/empresas' component={EmpresaListContainer} />
+
+                <ProtectedRoute exact path='/niveles/crear' component={NivelCrearContainer} />
+                <ProtectedRoute exact path='/niveles/:id' component={NivelCrearContainer} />
+                <ProtectedRoute exact path='/niveles/:id/editar' component={NivelCrearContainer} />
+                <ProtectedRoute exact path='/niveles' component={NivelListContainer} /> 
 
                 <ProtectedRoute exact path='/reporte' component={Reporte} />
 

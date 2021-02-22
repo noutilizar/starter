@@ -8,6 +8,7 @@ import usuarios from './modules/usuarios/usuarios';
 import notificaciones from './modules/notificaciones/notificaciones';
 import empresa from './modules/empresa/empresa';
 import reporte from './modules/reportes/reporte';
+import nivel from "./modules/nivel/niveles";
 
 export default combineReducers({
     form: formReducer,
@@ -19,4 +20,5 @@ export default combineReducers({
     notificaciones,
     empresa,
     reporte,
+    nivel,
 });

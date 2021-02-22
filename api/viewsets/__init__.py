@@ -3,3 +3,4 @@ from .empresa import EmpresaViewset
 from .vehiculo import VehiculoViewset
 from .servicio import ServicioViewset
 from .reportes import ReporteView
+from .nivel import NivelViewset
