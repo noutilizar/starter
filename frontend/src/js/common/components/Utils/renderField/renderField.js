@@ -344,18 +344,19 @@ export const renderFilePicker = ({
     meta: { touched, error },
 }) => {
     const invalid = touched && error;
+    console.log("photo: ", photo);
     return (
         <div className={classNames(`${className}`, { 'is-invalid': invalid })}>
             <FileUploader 
                 accept={accept}
                 disabled={disabled}
                 img={!!photo ? photo : null}
-                onFileChange={(e, file) => {
+                onFileChange={(e, file) => {                    
                     file = file || e.target.files[0];
                     const reader = new FileReader();
                     reader.onload = (e) => {
                         input.onChange(reader.result);
-                        if (!!setFile) {
+                        if (!!setFile) {                            
                             setFile(file);
                         }
                     };

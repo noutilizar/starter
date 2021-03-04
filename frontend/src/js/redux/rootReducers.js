@@ -10,6 +10,7 @@ import empresa from './modules/empresa/empresa';
 import reporte from './modules/reportes/reporte';
 import nivel from "./modules/nivel/niveles";
 import grado from "./modules/grado/grados";
+import tarea from "./modules/tarea/tareas";
 
 export default combineReducers({
     form: formReducer,
@@ -23,4 +24,5 @@ export default combineReducers({
     reporte,
     nivel,
     grado,
+    tarea,
 });

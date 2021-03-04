@@ -12,7 +12,7 @@ class Profile extends Component {
         this.state = { avatar: null };
     }
 
-    setAvatar = (avatar) => {
+    setAvatar = (avatar) => {        
         this.setState({ avatar });
     };
 
@@ -22,7 +22,7 @@ class Profile extends Component {
             { file: this.state.avatar, name: 'avatar' },
         ]);
     };
-
+ 
     render() {
         const { me } = this.props;
 

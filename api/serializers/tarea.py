@@ -7,6 +7,7 @@ class TareaSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'nombre',
+            'punteo',
             'descripcion',
             'archivo'
         )

@@ -176,6 +176,7 @@ class FileUploader extends Component {
                     accept="/*"
                     onChange={this.onFileChange}
                     ref="input"
+                    
                 />
             </label>
         );
