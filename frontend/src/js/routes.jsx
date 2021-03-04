@@ -29,6 +29,9 @@ import Reporte from './common/components/Reportes/reporteContainer';
 import NivelListContainer from "./common/components/Nivel/NivelListContainer";
 import NivelCrearContainer from "./common/components/Nivel/NivelCrearContainer";
 
+import GradoListContainer from "./common/components/Grado/GradoListContainer";
+import GradoCrearContainer from "./common/components/Grado/GradoCrearContainer";
+
 module.exports = (
     <div>
         <div className="container__content">
@@ -62,6 +65,11 @@ module.exports = (
                 <ProtectedRoute exact path='/niveles/:id' component={NivelCrearContainer} />
                 <ProtectedRoute exact path='/niveles/:id/editar' component={NivelCrearContainer} />
                 <ProtectedRoute exact path='/niveles' component={NivelListContainer} /> 
+
+                <ProtectedRoute exact path='/grados/crear' component={GradoCrearContainer} />
+                <ProtectedRoute exact path='/grados/:id' component={GradoCrearContainer} />
+                <ProtectedRoute exact path='/grados/:id/editar' component={GradoCrearContainer} />
+                <ProtectedRoute exact path='/grados' component={GradoListContainer} />                 
 
                 <ProtectedRoute exact path='/reporte' component={Reporte} />
 

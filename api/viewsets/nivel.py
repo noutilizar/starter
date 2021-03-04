@@ -14,10 +14,11 @@ from api.models import Nivel
 from api.serializers import NivelSerializer, NivelRegistroSerializer
 from rest_framework.response import Response
 from rest_framework import status
+from api.permission import IsProfesor
 
 class NivelViewset(viewsets.ModelViewSet):
     queryset = Nivel.objects.filter(activo=True)
-
+    permission_classes = (IsProfesor,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ("nombre",)
     search_fields = ("nombre",)
@@ -29,11 +30,12 @@ class NivelViewset(viewsets.ModelViewSet):
         else:
             return NivelRegistroSerializer
 
+    '''
     def get_permissions(self):
         """" Define permisos para este recurso """
         permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
-    
+    '''
 
     '''
     def list(self, request):

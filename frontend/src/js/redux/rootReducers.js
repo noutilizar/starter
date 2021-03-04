@@ -9,6 +9,7 @@ import notificaciones from './modules/notificaciones/notificaciones';
 import empresa from './modules/empresa/empresa';
 import reporte from './modules/reportes/reporte';
 import nivel from "./modules/nivel/niveles";
+import grado from "./modules/grado/grados";
 
 export default combineReducers({
     form: formReducer,
@@ -21,4 +22,5 @@ export default combineReducers({
     empresa,
     reporte,
     nivel,
+    grado,
 });

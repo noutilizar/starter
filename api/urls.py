@@ -12,6 +12,7 @@ router.register(r'vehiculo', viewsets.VehiculoViewset)
 router.register(r'servicio', viewsets.ServicioViewset)
 router.register(r'reportes', viewsets.ReporteView)
 router.register(r'niveles', viewsets.NivelViewset)
+router.register(r'grados', viewsets.GradoViewset)
 
 urlpatterns = [
     path('api/', include(router.urls)),

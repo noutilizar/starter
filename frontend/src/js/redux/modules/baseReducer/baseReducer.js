@@ -68,6 +68,7 @@ export const createReducer = (
         dispatch(setLoader(true));
         api.get(endpoint, params)
             .then((response) => {
+                console.log("data: ", response);
                 dispatch(setData(response));
                 dispatch(setPage(page));
             })
@@ -81,6 +82,7 @@ export const createReducer = (
         dispatch(setLoader(true));
         api.get(`${endpoint}/${id}`)
             .then((response) => {
+                console.log("data de edición: ", response)
                 dispatch(setItem(response));
                 if (!!formName) dispatch(initializeForm(formName, response));
             })
@@ -92,6 +94,7 @@ export const createReducer = (
 
     const crear = (data) => (dispatch) => {
         dispatch(setLoader(true));
+
         api.post(endpoint, data)
             .then(() => {
                 NotificationManager.success('Registro creado', 'Éxito', 3000);
@@ -108,7 +111,7 @@ export const createReducer = (
     const editar = (id, data) => (dispatch) => {
         dispatch(setLoader(true));
         api.put(`${endpoint}/${id}`, data)
-            .then(() => {
+            .then(() => {                
                 NotificationManager.success(
                     'Registro actualizado',
                     'Éxito',
